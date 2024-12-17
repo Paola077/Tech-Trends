@@ -36,12 +36,11 @@ public class Trend {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private Users users;
+    private User user;
 
-    @OneToMany(mappedBy = "trend", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "trend", cascade = CascadeType.ALL)
     private List<Tag> tags = new ArrayList<>();
 
-    @OneToMany(mappedBy = "trend", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "trend", cascade = CascadeType.ALL)
     private List<Favorite> favorites = new ArrayList<>();
-
 }
