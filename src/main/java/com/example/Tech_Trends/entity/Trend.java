@@ -27,7 +27,7 @@ public class Trend {
 
     @Enumerated(EnumType.STRING)
     @Column(length = 20, nullable = false)
-    private Category category;  // Enum: AI, CLOUD, DEVOPS, etc.
+    private Category category;
 
     @Column(length = 255)
     private String imgUrl;
