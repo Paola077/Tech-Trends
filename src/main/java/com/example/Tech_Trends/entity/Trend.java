@@ -3,6 +3,7 @@ package com.example.Tech_Trends.entity;
 import com.example.Tech_Trends.enums.Category;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class Trend {
     @Column(length = 255)
     private String imgUrl;
 
+    @CreationTimestamp
+    @Column(updatable = false)
     private LocalDate createAt;
 
     @ManyToOne
@@ -43,4 +46,23 @@ public class Trend {
 
     @OneToMany(mappedBy = "trend", cascade = CascadeType.ALL)
     private List<Favorite> favorites = new ArrayList<>();
+
+    public Trend(String title, String description, Category category, String imgUrl, User user) {
+        this.title = title;
+        this.description = description;
+        this.category = category;
+        this.imgUrl = imgUrl;
+        this.user = user;
+    }
+
+
+    public Trend(Long id, String title, String description, Category category, String imgUrl, LocalDate createAt, User user) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.category = category;
+        this.imgUrl = imgUrl;
+        this.createAt = createAt;
+        this.user = user;
+    }
 }
