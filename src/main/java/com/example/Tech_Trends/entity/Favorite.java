@@ -17,8 +17,6 @@ public class Favorite {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private LocalDate createAt;
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -26,4 +24,9 @@ public class Favorite {
     @ManyToOne
     @JoinColumn(name = "trend_id", nullable = false)
     private Trend trend;
+
+    public Favorite(User user, Trend trend) {
+        this.user = user;
+        this.trend = trend;
+    }
 }

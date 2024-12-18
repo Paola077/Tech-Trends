@@ -42,9 +42,6 @@ public class Trend {
     private User user;
 
     @OneToMany(mappedBy = "trend", cascade = CascadeType.ALL)
-    private List<Tag> tags = new ArrayList<>();
-
-    @OneToMany(mappedBy = "trend", cascade = CascadeType.ALL)
     private List<Favorite> favorites = new ArrayList<>();
 
     public Trend(String title, String description, Category category, String imgUrl, User user) {

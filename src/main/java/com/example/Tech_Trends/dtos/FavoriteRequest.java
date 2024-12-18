@@ -1,6 +1,6 @@
 package com.example.Tech_Trends.dtos;
 
-public record TagRequest(
-        String name,
+public record FavoriteRequest(
         Long trendId
-) {}
+) {
+}
