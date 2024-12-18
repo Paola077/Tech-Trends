@@ -3,6 +3,7 @@ package com.example.Tech_Trends.controllers;
 import com.example.Tech_Trends.dtos.TrendRequest;
 import com.example.Tech_Trends.dtos.TrendResponse;
 import com.example.Tech_Trends.services.TrendService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

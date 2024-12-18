@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Getter
@@ -61,5 +62,32 @@ public class Trend {
         this.imgUrl = imgUrl;
         this.createAt = createAt;
         this.user = user;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trend trend = (Trend) o;
+        return Objects.equals(id, trend.id) && Objects.equals(title, trend.title) && Objects.equals(description, trend.description) && category == trend.category && Objects.equals(imgUrl, trend.imgUrl) && Objects.equals(createAt, trend.createAt) && Objects.equals(user, trend.user) && Objects.equals(favorites, trend.favorites);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, category, imgUrl, createAt, user, favorites);
+    }
+
+    @Override
+    public String toString() {
+        return "Trend{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", category=" + category +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", createAt=" + createAt +
+                ", user=" + user +
+                ", favorites=" + favorites +
+                '}';
     }
 }

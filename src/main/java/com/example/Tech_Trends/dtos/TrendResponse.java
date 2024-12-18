@@ -9,6 +9,6 @@ public record TrendResponse(
         Category category,
         String imgUrl,
         String createdAt,
-        UserResponse userId
+        UserResponse user
 ) {
 }

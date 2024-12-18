@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "ee31a9c3-0b11-4d3d-908d-7f9d64de9ae1",
+		"name": "TechTrend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36385755"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GetAllUsers",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "AddUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"john_doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"password\": \"securePassword123\",\r\n  \"role\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUserById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/users/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trends",
+			"item": [
+				{
+					"name": "AddTrend",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Latest Tech News\",\r\n  \"description\": \"Updates about the newest gadgets and AI advancements.\",\r\n  \"category\": \"Technology\",\r\n  \"imgUrl\": \"https://example.com/tech-news.jpg\",\r\n  \"userId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/trends",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trends"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllTrends",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetTrendById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateTrend",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteTrend",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/trends/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trends",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Favorites",
+			"item": [
+				{
+					"name": "AddFavorite",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/favorites?userId=1&trendId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"favorites"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1"
+								},
+								{
+									"key": "trendId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFavorite",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
