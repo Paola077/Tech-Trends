@@ -2,8 +2,11 @@ package com.example.Tech_Trends.controllers;
 
 import com.example.Tech_Trends.dtos.TrendRequest;
 import com.example.Tech_Trends.dtos.TrendResponse;
+import com.example.Tech_Trends.enums.Category;
 import com.example.Tech_Trends.services.TrendService;
 import jakarta.validation.Valid;
+import jakarta.websocket.server.PathParam;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,9 +29,19 @@ public class TrendController {
     }
 
     @GetMapping
-    public ResponseEntity<List<TrendResponse>> getAll() {
-        List<TrendResponse> trendList = trendService.getAllTrends();
-        return new ResponseEntity<>(trendList, HttpStatus.OK);
+    public List<TrendResponse> findByCategoryAndTitle(@PathParam("category") Category category, @PathParam("title") String title){
+        if(category == null && (title == null || title.isEmpty())) {
+            return trendService.getAll();
+        }
+
+        if(category != null && (title == null || title.isEmpty())) {
+            return trendService.findByCategory(category);
+        }
+
+        if(category == null) {
+            return trendService.findByTitle(title);
+        }
+        return trendService.findByCategoryAndTitle(category, title);
     }
 
     @GetMapping("/{id}")

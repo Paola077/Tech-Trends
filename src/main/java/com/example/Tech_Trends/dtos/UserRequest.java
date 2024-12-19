@@ -1,6 +1,5 @@
 package com.example.Tech_Trends.dtos;
 
-import com.example.Tech_Trends.enums.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -17,8 +16,6 @@ public record UserRequest(
     String email,
 
     @Pattern(regexp = "^(?=.*[a-zA-Z]).{8,}$", message = "The password must be at least 8 characters long and contain at least one letter")
-    String password,
-
-    Role role
+    String password
 ) {
 }

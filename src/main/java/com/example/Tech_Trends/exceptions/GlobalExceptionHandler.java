@@ -35,4 +35,18 @@ public class GlobalExceptionHandler {
         errors.put("error", exception.getMessage());
         return new ResponseEntity<>(errors, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(TechTrendFailedUploadException.class)
+    public ResponseEntity<Map<String, String>> handleTechFailedUploadException(TechTrendFailedUploadException exception) {
+        Map<String, String> errors = new HashMap<>();
+        errors.put("error", exception.getMessage());
+        return new ResponseEntity<>(errors, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(TechTrendInvalidPageException.class)
+    public ResponseEntity<Map<String, String>> handleTechTrendInvalidPageException(TechTrendInvalidPageException exception) {
+        Map<String, String> errors = new HashMap<>();
+        errors.put("error", exception.getMessage());
+        return new ResponseEntity<>(errors, HttpStatus.NOT_FOUND);
+    }
 }

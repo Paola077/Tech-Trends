@@ -2,7 +2,7 @@ package com.example.Tech_Trends.cloudinary;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import com.example.Tech_Trends.exceptions.TechTrendFailedUpload;
+import com.example.Tech_Trends.exceptions.TechTrendFailedUploadException;
 import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class CloudinaryProvider {
         try {
             uploadResult = cloudinary.uploader().upload(url, paramsImg);
         } catch (IOException e) {
-            throw new TechTrendFailedUpload(e.getMessage());
+            throw new TechTrendFailedUploadException(e.getMessage());
         }
         return uploadResult;
     }

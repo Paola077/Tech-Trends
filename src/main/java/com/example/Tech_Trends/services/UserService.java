@@ -56,7 +56,6 @@ public class UserService {
             user.setUsername(userRequest.username());
             user.setEmail(userRequest.email());
             user.setPassword(userRequest.password());
-            user.setRole(userRequest.role());
 
             User updatedUser = userRepository.save(user);
             return UserMapper.toResponse(updatedUser);

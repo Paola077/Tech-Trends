@@ -1,19 +1,11 @@
 package com.example.Tech_Trends.controllers;
-import com.example.Tech_Trends.dtos.TrendRequest;
-import com.example.Tech_Trends.dtos.TrendResponse;
-import com.example.Tech_Trends.dtos.UserRequest;
-import com.example.Tech_Trends.dtos.UserResponse;
 import com.example.Tech_Trends.entity.Trend;
 import com.example.Tech_Trends.entity.User;
 import com.example.Tech_Trends.enums.Category;
-import com.example.Tech_Trends.enums.Role;
 import com.example.Tech_Trends.repositories.TrendRepository;
 import com.example.Tech_Trends.repositories.UserRepository;
 import com.example.Tech_Trends.services.TrendService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -56,7 +48,7 @@ class TrendControllerTest {
 
     @Test
     public void testAddAValidTrend() throws Exception {
-        User defaultUser = new User("username", "username@email.com", "password", Role.USER);
+        User defaultUser = new User("username", "username@email.com", "password");
 
         userRepository.save(defaultUser);
 
@@ -73,7 +65,7 @@ class TrendControllerTest {
     @Test
     void testGetAllTrendWhenCallGetAll() throws Exception {
 
-        User defaultUser = new User("username", "username@email.com", "password", Role.USER);
+        User defaultUser = new User("username", "username@email.com", "password");
         User savedUser = userRepository.save(defaultUser);
 
         Trend trend1 = new Trend("Latest Tech News","some-description" , Category.AI, "https://example.com/tech-news.jpg", savedUser);
@@ -95,7 +87,7 @@ class TrendControllerTest {
     @Test
     void getTrendById() throws Exception {
 
-        User defaultUser = new User("username", "username@email.com", "password", Role.USER);
+        User defaultUser = new User("username", "username@email.com", "password");
         User savedUser = userRepository.save(defaultUser);
 
         Trend trend1 = new Trend("Latest Tech News","some-description" , Category.AI, "https://example.com/tech-news.jpg", savedUser);
