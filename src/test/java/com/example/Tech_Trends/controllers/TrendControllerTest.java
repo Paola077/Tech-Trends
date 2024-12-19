@@ -49,7 +49,7 @@ class TrendControllerTest {
                 "title":"Latest Tech News",
                 "description":"Updates about gadgets",
                 "category":"AI",
-                "imgUrl":"https://example.com/tech-news.jpg",
+                "imgUrl":"",
                 "userId":1
             }""";
 
@@ -67,7 +67,7 @@ class TrendControllerTest {
                 .andExpect(jsonPath("$.id").value(1L))
                 .andExpect(jsonPath("$.title").value("Latest Tech News"))
                 .andExpect(jsonPath("$.category").value("AI"))
-                .andExpect(jsonPath("$.imgUrl").value("https://example.com/tech-news.jpg"));
+                .andExpect(jsonPath("$.imgUrl").value(""));
     }
 
     @Test
