@@ -20,7 +20,7 @@ public class TrendController {
     }
 
     @PostMapping
-    public ResponseEntity<TrendResponse> addTrend(@RequestBody TrendRequest trendRequest) {
+    public ResponseEntity<TrendResponse> addTrend(@RequestBody @Valid TrendRequest trendRequest) {
         TrendResponse trendResponse = trendService.createTrend(trendRequest);
         return new ResponseEntity<>(trendResponse, HttpStatus.CREATED);
     }
@@ -38,7 +38,7 @@ public class TrendController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TrendResponse> updateTrend(@PathVariable Long id, @RequestBody TrendRequest trendRequest) {
+    public ResponseEntity<TrendResponse> updateTrend(@PathVariable Long id, @RequestBody @Valid TrendRequest trendRequest) {
         TrendResponse trendResponse = trendService.updateTrendById(id, trendRequest);
         return new ResponseEntity<>(trendResponse, HttpStatus.OK);
     }

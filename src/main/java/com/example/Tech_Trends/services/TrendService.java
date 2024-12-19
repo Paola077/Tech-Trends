@@ -1,5 +1,6 @@
 package com.example.Tech_Trends.services;
 
+import com.example.Tech_Trends.cloudinary.CloudinaryProvider;
 import com.example.Tech_Trends.dtos.TrendRequest;
 import com.example.Tech_Trends.dtos.TrendResponse;
 import com.example.Tech_Trends.entity.Trend;
@@ -7,12 +8,12 @@ import com.example.Tech_Trends.entity.User;
 import com.example.Tech_Trends.exceptions.TechTrendExistingUserException;
 import com.example.Tech_Trends.exceptions.TechTrendNotFoundException;
 import com.example.Tech_Trends.mappers.TrendMapper;
-import com.example.Tech_Trends.mappers.UserMapper;
 import com.example.Tech_Trends.repositories.TrendRepository;
 import com.example.Tech_Trends.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -35,12 +36,18 @@ public class TrendService {
 
         User user = optionalUser.get();
 
+        String imageUrl = "";
+        if (trendRequest.imgUrl() != null && !trendRequest.imgUrl().trim().isEmpty()) {
+            Map<String, Object> imageUpload = CloudinaryProvider.uploadImage(trendRequest.imgUrl());
+            imageUrl = imageUpload.get("url").toString();
+        }
+
         Optional<Trend> existingTrend = trendRepository.findByTitleAndUser(trendRequest.title(), user);
         if(existingTrend.isPresent()) {
             throw new TechTrendExistingUserException("Trend with this title already exists for the user.");
         }
 
-        Trend trend = TrendMapper.toEntity(trendRequest, optionalUser.get());
+        Trend trend = TrendMapper.toEntity(trendRequest, optionalUser.get(), imageUrl);
         Trend savedTrend = trendRepository.save(trend);
         return TrendMapper.toResponse(savedTrend);
     }

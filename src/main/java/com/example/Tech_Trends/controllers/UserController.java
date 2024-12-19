@@ -3,6 +3,7 @@ package com.example.Tech_Trends.controllers;
 import com.example.Tech_Trends.dtos.UserRequest;
 import com.example.Tech_Trends.dtos.UserResponse;
 import com.example.Tech_Trends.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserResponse> addUser(@RequestBody UserRequest userRequest) {
+    public ResponseEntity<UserResponse> addUser(@RequestBody @Valid UserRequest userRequest) {
         UserResponse userResponse = userService.createUser(userRequest);
         return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
     }
@@ -38,7 +39,7 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserResponse> updateUser(@PathVariable Long id, @RequestBody UserRequest userRequest ) {
+    public ResponseEntity<UserResponse> updateUser(@PathVariable Long id, @RequestBody @Valid UserRequest userRequest ) {
         UserResponse userResponse = userService.updateUserById(id, userRequest);
         return new ResponseEntity<>(userResponse, HttpStatus.OK);
     }

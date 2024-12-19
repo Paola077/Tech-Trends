@@ -8,12 +8,12 @@ import com.example.Tech_Trends.entity.User;
 
 public class TrendMapper {
 
-    public static Trend toEntity(TrendRequest trendRequest, User user) {
+    public static Trend toEntity(TrendRequest trendRequest, User user, String uploadedImgUrl) {
         return new Trend(
                 trendRequest.title(),
                 trendRequest.description(),
                 trendRequest.category(),
-                trendRequest.imgUrl(),
+                uploadedImgUrl,
                 user
         );
     }

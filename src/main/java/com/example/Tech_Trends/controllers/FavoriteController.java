@@ -2,6 +2,7 @@ package com.example.Tech_Trends.controllers;
 
 import com.example.Tech_Trends.dtos.FavoriteResponse;
 import com.example.Tech_Trends.services.FavoriteService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class FavoriteController {
     }
 
     @PostMapping
-    public ResponseEntity<FavoriteResponse> addFavorite(@RequestParam Long userId, @RequestParam Long trendId) {
+    public ResponseEntity<FavoriteResponse> addFavorite( @RequestParam Long userId, @RequestParam @Valid Long trendId) {
         FavoriteResponse favoriteResponse = favoriteService.addFavorite(userId, trendId);
         return new ResponseEntity<>(favoriteResponse, HttpStatus.CREATED);
     }
