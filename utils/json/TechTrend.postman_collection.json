@@ -10,14 +10,6 @@
 			"name": "User",
 			"item": [
 				{
-					"name": "GetAllUsers",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
-				},
-				{
 					"name": "AddUser",
 					"request": {
 						"method": "POST",
@@ -41,6 +33,14 @@
 								"users"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUsers",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				},
