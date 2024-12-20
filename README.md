@@ -5,7 +5,7 @@ Tech Trends es una API REST diseñada para registrar, organizar y consultar tend
 
 ## Características Principales ✨
 
-* Gestión de usuarios con roles.
+* Gestión de usuarios.
 * Registro y administración de tendencias tecnológicas.
 * Funcionalidad para agregar tendencias a favoritos por usuario.
 * Buscador por categoría y título de tendencias.
