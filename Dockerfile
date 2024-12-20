@@ -16,7 +16,7 @@ FROM eclipse-temurin:17-jdk-jammy
 
 WORKDIR /app
 
-COPY --from=build /app/target/TechTrends-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/Tech-Trends-0.0.1-SNAPSHOT.jar app.jar
 
 ENV SPRING_PROFILE_ACTIVE=prod
 
