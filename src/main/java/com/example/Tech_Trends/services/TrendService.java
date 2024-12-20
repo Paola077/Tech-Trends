@@ -102,9 +102,15 @@ public class TrendService {
         if(optionalTrend.isPresent()) {
             Trend trend = optionalTrend.get();
 
+            String imageUrl = trend.getImgUrl();
+            if (trendRequest.imgUrl() != null && !trendRequest.imgUrl().trim().isEmpty()) {
+                Map<String, Object> imageUpload = CloudinaryProvider.uploadImage(trendRequest.imgUrl());
+                imageUrl = imageUpload.get("url").toString();
+            }
+
             trend.setTitle(trendRequest.title());
             trend.setDescription(trendRequest.description());
-            trend.setImgUrl(trendRequest.imgUrl());
+            trend.setImgUrl(imageUrl);
 
             Trend updatedTrend = trendRepository.save(trend);
             return TrendMapper.toResponse(updatedTrend);
