@@ -1,7 +1,7 @@
 # Tech Trends API 📈
 ![CI](https://github.com/Paola077/Tech-Trends-Api/actions/workflows/ci.yml/badge.svg)
 
-Tech Trends es una API REST diseñada para registrar, organizar y consultar tendencias tecnológicas emergentes. Proporciona funcionalidades completas de CRUD (Crear, Leer, Actualizar y Eliminar) para las entidades principales, incluyendo usuarios, tendencias y favoritos. Además, incluye un buscador avanzado para filtrar tendencias por categoría y título.
+Tech Trends es una API REST diseñada para registrar, organizar y consultar tendencias tecnológicas emergentes. Proporciona funcionalidades completas de CRUD (Crear, Leer, Actualizar y Eliminar) para las entidades principales, incluyendo usuarios, tendencias y favoritos. Además, incluye un buscador para filtrar tendencias por categoría y título.
 
 ## Características Principales ✨
 
@@ -20,7 +20,7 @@ Tech Trends es una API REST diseñada para registrar, organizar y consultar tend
 * Java 21+
 * Maven 
 * Docker 
-* render.com -> Donde se ha realizado el deployment
+* render.com -> Donde se ha realizado el deployment.
 * Cuenta en Cloudinary
 
 ## Categorías Disponibles 📌
