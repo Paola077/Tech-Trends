@@ -53,7 +53,6 @@ public class UserService {
         if(optionalUser.isPresent()) {
             User user = optionalUser.get();
 
-            user.setUsername(userRequest.username());
             user.setEmail(userRequest.email());
             user.setPassword(userRequest.password());
 
