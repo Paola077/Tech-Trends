@@ -23,6 +23,23 @@ Tech Trends es una API REST diseñada para registrar, organizar y consultar tend
 * render.com -> Donde se ha realizado el deployment
 * Cuenta en Cloudinary
 
+## Categorías Disponibles 📌
+
+#### Las tendencias pueden ser clasificadas en las siguientes categorías fijas:
+
+* AI: Inteligencia Artificial. 
+* CLOUD: Computación en la nube.
+* CYBERSECURITY: Ciberseguridad.
+* DATA_SCIENCE: Ciencia de datos.
+* DEVOPS: Prácticas DevOps.
+* IOT: Internet de las cosas.
+* BLOCKCHAIN: Tecnología blockchain.
+* ROBOTICS: Robótica.
+* AR_VR: Realidad Aumentada y Realidad Virtual.
+* OTHER: Otras categorías no especificadas.
+
+#### Utiliza estas categorías al crear o filtrar tendencias.
+
 ## Configuración🛠️
 
 
