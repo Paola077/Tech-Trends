@@ -1,14 +1,18 @@
-FROM amazoncorretto:21-alpine-jdk AS build
+FROM maven:3.9.6-eclipse-temurin-17 AS build AS build
 
 WORKDIR /app
 
 COPY pom.xml ./
+COPY mvnw ./
+COPY .mvn .mvn/
+
+RUN mvn dependency:go-offline -B
 
 COPY src ./src
 
 RUN mvn clean package -DskipTests
 
-FROM amazoncorretto:21-alpine-jdk
+FROM eclipse-temurin:17-jdk-jammy
 
 WORKDIR /app
 
@@ -18,5 +22,5 @@ ENV SPRING_PROFILE_ACTIVE=prod
 
 EXPOSE 8080
 
-
+CMD ["java", "-jar", "app.jar"]
 
